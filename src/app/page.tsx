@@ -1,65 +1,93 @@
 import Image from "next/image";
 
-export default function Home() {
+export default function HomePage() {
+  // Products array with images and info
+  const products = [
+    { src: "creambag.jfif", title: "Cream Bag", desc: "Perfect for everyday use." },
+    { src: "leatherbag.jfif", title: "Leather Bag", desc: "Stylish and durable." },
+    { src: "travel bag.jfif", title: "Travel Bag", desc: "Ideal for trips." },
+    { src: "casual bag.jfif", title: "Casual Bag", desc: "Comfortable and trendy." },
+    { src: "office bag.jfif", title: "Office Bag", desc: "Professional and spacious." },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main>
+      {/* Home Section */}
+      <section
+        id="home"
+        className="h-screen bg-cover bg-center flex items-center justify-center"
+        style={{ backgroundImage: "url('/stylishbag.webp')" }} // public folder image
+      >
+        <h1 className="text-5xl md:text-6xl text-white font-bold bg-black/40 p-6 rounded">
+          Welcome to BagStore
+        </h1>
+      </section>
+
+      {/* Products Section */}
+      <section id="products" className="py-20 bg-gray-100">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-10">Our Bags</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {products.map((product) => (
+              <div
+                key={product.src}
+                className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition"
+              >
+                <Image
+                  src={`/${product.src}`} // public folder se image
+                  alt={product.title}
+                  width={400}
+                  height={400}
+                  className="rounded-lg object-cover"
+                />
+                <h3 className="mt-4 text-xl font-semibold">{product.title}</h3>
+                <p className="text-gray-600">{product.desc}</p>
+                <button className="mt-3 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                  Add to Cart
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20">
+        <div className="max-w-4xl mx-auto text-center px-4">
+          <h2 className="text-4xl font-bold mb-6">About BagStore</h2>
+          <p className="text-green-700 text-lg">
+            BagStore brings you high-quality, stylish bags for all your daily needs.
+            Our mission is to provide durability, comfort, and style in every bag.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-gray-100">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-6">Contact Us</h2>
+          <form className="bg-white p-8 rounded-xl shadow space-y-4">
+            <input
+              type="text"
+              placeholder="Your Name"
+              className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <input
+              type="email"
+              placeholder="Your Email"
+              className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
+            />
+            <textarea
+              placeholder="Your Message"
+              className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
+              rows={5}
+            />
+            <button className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
+              Send Message
+            </button>
+          </form>
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
