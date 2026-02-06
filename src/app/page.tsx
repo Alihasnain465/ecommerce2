@@ -3,11 +3,11 @@ import Image from "next/image";
 export default function HomePage() {
   // Products array with images and info
   const products = [
-    { src: "creambag.jfif", title: "Cream Bag", desc: "Perfect for everyday use." },
-    { src: "leatherbag.jfif", title: "Leather Bag", desc: "Stylish and durable." },
-    { src: "travel bag.jfif", title: "Travel Bag", desc: "Ideal for trips." },
-    { src: "casual bag.jfif", title: "Casual Bag", desc: "Comfortable and trendy." },
-    { src: "office bag.jfif", title: "Office Bag", desc: "Professional and spacious." },
+    { src: "creambag.jfif", title: "cream Bag", desc: "Perfect for everyday use." },
+    { src: "leatherbag.jfif", title: "leather Bag", desc: "Stylish and durable." },
+    { src: "travel bag.jfif", title: "travel Bag", desc: "Ideal for trips." },
+    { src: "casual bag.jfif", title: "casual Bag", desc: "Comfortable and trendy." },
+    { src: "office bag.jfif", title: "office Bag", desc: "Professional and spacious." },
   ];
 
   return (
